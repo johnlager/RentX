@@ -1,4 +1,8 @@
 /node_modules
 /.vscode
+/coverage
 /tmp/avatar/*
 /tmp/cars/*
+/dist
+.env
+ormconfig.json
