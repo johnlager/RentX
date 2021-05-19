@@ -3,6 +3,7 @@
 /coverage
 /tmp/avatar/*
 /tmp/cars/*
+!tmp/.gitkeep
 /dist
 .env
 ormconfig.json
