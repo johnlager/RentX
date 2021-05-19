@@ -2,9 +2,10 @@
   "openapi": "3.0.0",
   "info": {
     "title": "RentX Documentation",
-    "description": "This is an Rent API",
+    "description": "This is a cars rental API.",
     "version": "1.0.0",
     "contact": {
+      "url": "https://github.com/johnlager/RentX",
       "email": "john.vitor.dss@gmail.com"
     }
   },
