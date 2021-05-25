@@ -185,6 +185,131 @@
         }
       }
     },
+    "/cars/available": {
+      "get": {
+        "tags": ["Cars"],
+        "summary": "List all available cars",
+        "description": "List all available cars",
+        "parameters": [
+          {
+            "name": "category_id",
+            "in": "query",
+            "description": "Category id",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "brand",
+            "in": "query",
+            "description": "Car brand",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Car name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { 
+                        "type": "string" 
+                      },
+                      "available": { 
+                        "type": "string" 
+                      },
+                      "name": { 
+                        "type": "string" 
+                      },
+                      "description": { 
+                        "type": "string" 
+                      },
+                      "daily_rate": { 
+                        "type": "string" 
+                      },
+                      "license_plate": { 
+                        "type": "string" 
+                      },
+                      "fine_amount": { 
+                        "type": "string" 
+                      },
+                      "brand": { 
+                        "type": "string" 
+                      },
+                      "category_id": { 
+                        "type": "string" 
+                      },
+                      "created_at": { 
+                        "type": "string" 
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cars/specifications/{id}": {
+      "post": {
+        "tags": ["Cars"],
+        "summary": "Associate a car to a specification",
+        "description": "Associate a car with one or more specifications",
+        "security": [{"bearerAuth":[]}],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Car id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],        
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "specifications_id": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "created"
+          }
+        }
+      }
+
+    },
     "/cars/images/{id}": {
       "post": {
         "tags": ["Cars"],
