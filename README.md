@@ -1,102 +1,50 @@
+
 # Rentx
+![](https://img.shields.io/github/workflow/status/johnlager/rentx/CI)
 
-**to-do:** Introdução.
+  Rentx é uma **API Rest** para um sistema de aluguel de carros desenvolvido durante o treinamento intensivo de NodeJS da Rocketseat.
 
-**to-do:** Instalação.
+  Os requisitos funcionais da aplicação podem ser acessados no link [requisitos](/assets/Requisitos.md).
 
-**to-do:** Tecnologias utilizadas.
 
-# Requisitos
-## Cadastro de Carro
+## Documentação
 
-**REQUISITOS FUNCIONAIS**
-* Deve ser possível cadastrar um novo carro. 
+O Sistema possui documentação em **Swagger** e pode ser testado no link [Rentx](https://rentx.johnlager.com/api-docs/).
 
- **REGRAS DE NEGÓCIO** 
-* Não deve ser possível cadastrar um carro com uma placa já existente. 
-* O carro deve ser cadastrado, por padrão, com disponibilidade.
+  
+## Tecnologias utilizadas
 
-* O usuário responsável pelo cadastro deve ser um administrador.
 
-## Listagem de carros
+**Plataforma:** NodeJS
 
- **REQUISITOS FUNCIONAIS** 
-* Deve ser possível **listar** todos os carros disponíveis. 
-* Deve ser possíve listar todos os carros disponíveis pelo nome da categoria. 
-* Deve ser possíve listar todos os carros disponíveis pelo nome da marca. 
-* Deve ser possíve listar todos os carros disponíveis pelo nome do carro.
+**Linguagem de programação:** Typescript
 
- **REGRAS DE NEGÓCIO** 
-* O usuário não precisa estar logado no sistema.
+**Framework**: Express
 
-## Cadastro de Especificação do Carro
+**Persistência de dados**: Postgres e Redis no Docker
 
- **REQUISITOS FUNCIONAIS** 
-* Deve ser possível cadastrar uma especificação para um carro. 
-* Deve ser possível listar todas as especificações. 
-* Deve ser possível listar todos os carros.
+**ORM**: TypeORM
 
- **REGRAS DE NEGÓCIO** 
-* Não deve ser possível cadastrar uma especificação para um carro não cadastrado. 
-* Não deve ser possível cadastrar uma especificação já existente para o mesmo carro. 
-* O usuário responsável pelo cadastro deve ser um administrador.
+**Testes**: Jest e Supertest
 
-## Cadastro de Imagens do Carro
+**Injeção de dependencias**: TSyringe
 
-**REQUISITOS FUNCIONAIS**
-* Deve ser possível cadastrar as imagens do carro.
+**Segurança:** Bcrypt, JWT e rate-limiter-flexible
 
-**REQUISITOS NÃO-FUNCIONAIS** 
-* Utilizar o multer para upload dos arquivos.
+**Upload de arquivos:** Multer
 
-**REGRAS DE NEGÓCIO** 
-* O usuário deve poder cadastrar mais de uma imagem para o mesmo carro. 
-* O usuário responsável pelo cadastro deve ser um usuário administrador.
+**Hospedagem:** AWS EC2, Nginx, Certbot, PM2 e Google Domains
 
-## Aluguel de Carros
+**Storage:** S3 Bucket
 
-**REQUISITOS FUNCIONAIS**
-* Deve ser possível cadastrar um aluguel.
+**Code linter:** eslint e prettier
 
-**REGRAS DE NEGÓCIO**
-* O aluguel deve ter duração mínima de 24 horas. 
-* Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário. 
-* Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo carro. 
-* O usuário deve estar logado na aplicação.
-* Ao realizar um aluguel, o status do carro deverá ser alterado para indisponível.
+## Modelagem do sistema
 
-## Devolução de carro
+![](assets/diagrama.png)
 
-**REQUISITOS FUNCIONAIS**
+## Feedback
 
-* Deve ser possível realizar a devolução de um carro
+Todo feedback é bem vindo, se tiver alguma sugestão é só em entrar em contato! :-)
 
-**REGRAS DE NEGÓCIO**
-
-* Se o carro for devolvido com menos de 24 horas, deverá ser cobrado diária completa.
-* Ao realizar devolução, o carro deverá ser liberado * para outro aluguel.
-* Ao realizar devolução, o usuario deverá ser liberado para outro aluguel.
-* Ao realizar devolução, deve ser calculado o total do aluguel.
-* Caso o horário de devolução seja superior ao horário previsto de entrega, deverá ser cobrado multa proporcional aos dias de atraso.
-* Caso haja multa, deverá ser somado ao total do aluguel.
-* O usuario deve estar logado na aplicação
-
-## Listagem de Alugueis para usuário
-
-**REQUISITOS FUNCIONAIS**
-* Deve ser possível realizar a busca de todos os alugueis para o usuário
-
-**REGRAS DE NEGÓCIO**
-* O usuário deve estar logado na aplicação
-
-## Recuperar Senha
-
-**REQUISITOS FUNCIONAIS**
-* Deve ser possível o usuário recuperar a senha informando o e-mail
-* O usuário deve receber um e-mail com o passo a passo para a recuperação da senha
-* O usuário deve conseguir inserir uma nova senha
-
-**REGRAS DE NEGÓCIO**
-* O usuário precisa informar uma nova senha
-* O link enviado para a recuperação deve expirar em 3 horas
-
+  
