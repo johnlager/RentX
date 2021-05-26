@@ -506,6 +506,210 @@
           }
         }
       }
+    },
+    "/rentals": {
+      "post": {
+        "tags": ["Rentals"],
+        "summary": "Create a rental",
+        "description": "Create a rental",
+        "security": [{"bearerAuth":[]}],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "expected_return_date": {
+                    "type": "string"
+                  },
+                  "car_id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "car_id": {
+                      "type": "string"
+                    },
+                    "user_id": {
+                      "type": "string"
+                    },
+                    "expected_return_date": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rentals/devolution/{id}": {
+      "post": {
+        "tags": ["Rentals"],
+        "summary": "Rental devolution",
+        "description": "Rental devolution",
+        "security": [{"bearerAuth":[]}],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Rental id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "car_id": {
+                      "type": "string"
+                    },
+                    "user_id": {
+                      "type": "string"
+                    },
+                    "expected_return_date": {
+                      "type": "string"
+                    },
+                    "start_date": {
+                      "type": "string"
+                    },
+                    "end_date": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rentals/user": {
+      "get": {
+        "tags": ["Rentals"],
+        "summary": "List user rentals",
+        "description": "List user rentals",
+        "security": [{"bearerAuth":[]}],
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { 
+                        "type": "string" 
+                      },
+                      "car_id": { 
+                        "type": "string" 
+                      },
+                      "user_id": { 
+                        "type": "string" 
+                      },
+                      "start_date": { 
+                        "type": "string" 
+                      },
+                      "end_date": { 
+                        "type": "string" 
+                      },
+                      "expected_return_date": { 
+                        "type": "string" 
+                      },
+                      "total": { 
+                        "type": "string" 
+                      },
+                      "created_at": { 
+                        "type": "string" 
+                      },
+                      "updated_at": { 
+                        "type": "string" 
+                      },
+                      "car": { 
+                        "type": "object",
+                        "properties": {
+                          "id":{
+                            "type": "string"
+                          },
+                          "available":{
+                            "type": "string"
+                          },
+                          "name":{
+                            "type": "string"
+                          },
+                          "description":{
+                            "type": "string"
+                          },
+                          "daily_rate":{
+                            "type": "string"
+                          },
+                          "lincense_plate":{
+                            "type": "string"
+                          },
+                          "fine_amount":{
+                            "type": "string"
+                          },
+                          "brand":{
+                            "type": "string"
+                          },
+                          "category_id":{
+                            "type": "string"
+                          },
+                          "created_at":{
+                            "type": "string"
+                          }
+                        } 
+                      }
+                    }
+                  }
+                } 
+              }
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
